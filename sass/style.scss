@@ -1,0 +1,51 @@
+$primary-color : #ff1f17 ; 
+.text {
+    color:  red ; 
+    font-size: 20px ;
+}
+testarea {
+    @extend .text ;
+}
+
+h1 {
+    @extend .text  ;
+}
+
+@mixin test($width, $color ) {
+    
+    border: solid $width $color;
+}
+
+.btn{
+    @include test(2px , yellow )
+}
+
+@function background ($background-color) {
+    
+    @if background-color!=(white  )  {
+            @return white ;     
+    }@else {
+             @return black ;
+    }
+}
+
+
+
+
+$langages : "HTML5", "CSS3", "JAVA", "React" ; 
+
+@function firstOne($langages){
+    @return nth($langages , 1);
+}
+
+@function lastchild($languges) {
+@return nth($langages, length(langages));
+
+}
+
+.language {
+    content : firstOne($langages); 
+}
+.language2 {
+    content : lastchild($langages); 
+}
